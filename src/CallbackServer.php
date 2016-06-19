@@ -77,7 +77,7 @@ class CallbackServer implements RequestHandler
 
             if ($type === 'confirmation') {
                 $confirmToken = yield from $this->confirmToken($requestData['group_id']);
-                
+
                 return yield from $this->ok($confirmToken);
             }
 
@@ -85,7 +85,7 @@ class CallbackServer implements RequestHandler
                 /** @var Coroutine\Coroutine[] $coroutines */
                 $coroutines = [];
 
-                foreach($this->listeners[$type] as $listener) {
+                foreach ($this->listeners[$type] as $listener) {
                     $coroutines[] = $listener($requestData);
                 }
 

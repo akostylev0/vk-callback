@@ -10,10 +10,11 @@ class ApiException extends \Exception
      */
     private $parameters;
 
-    public static function fromResponse(array $response) {
+    public static function fromResponse(array $response)
+    {
         $parameters = [];
 
-        foreach($response['error']['request_params'] as $param) {
+        foreach ($response['error']['request_params'] as $param) {
             $parameters[$param['key']] = $param['value'];
         }
 

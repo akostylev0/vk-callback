@@ -50,7 +50,7 @@ class CallbackServer implements RequestHandler
             $this->listeners[$event] = [];
         }
 
-        $this->listeners[$event][] = Coroutine\wrap($closure);
+        $this->listeners[$event][] = Coroutine\wrap($this->wrap($closure));
     }
 
     public function run(int $port, string $address = '*')
@@ -121,5 +121,18 @@ class CallbackServer implements RequestHandler
         }
 
         return yield $callback($groupId);
+    }
+
+    private function wrap(Closure $closure) : Closure
+    {
+        return function(...$args) use ($closure) {
+            $val = $closure(...$args);
+
+            if ($val instanceof \Generator) {
+                yield from $val;
+            } else {
+                yield $val;
+            }
+        };
     }
 }

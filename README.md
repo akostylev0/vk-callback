@@ -1,3 +1,8 @@
+VkCallback
+====
+
+Async server and client for VK Callback API built on top of Icicle.
+
 Пример
 ===
 

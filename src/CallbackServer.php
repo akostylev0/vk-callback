@@ -120,6 +120,6 @@ class CallbackServer implements RequestHandler
             throw new \RuntimeException('Confirm closure does not set');
         }
 
-        return yield $val = $callback($groupId);
+        return yield $callback($groupId);
     }
 }

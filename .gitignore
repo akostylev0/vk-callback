@@ -29,6 +29,3 @@ fabric.properties
 composer.phar
 /vendor/
 .gitignore
-composer.json
-composer.lock
-src/

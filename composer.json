@@ -1,6 +1,7 @@
 {
     "name": "ezaki113/vk-callback",
     "description": "Async Callback Server and Api client for rapid VK applications development.",
+    "keywords": ["vk", "api", "callback api", "vkontakte"],
     "license": "MIT",
     "authors": [
         {

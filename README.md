@@ -6,7 +6,7 @@ Async server and client for VK Callback API built on top of [Icicle](https://git
 INSTALL
 ===
 ```bash
-composer install ezaki113/vk-callback
+composer require ezaki113/vk-callback
 ```
 
 TLDR

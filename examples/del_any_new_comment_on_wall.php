@@ -1,18 +1,3 @@
-VkCallback
-====
-
-Async server and client for VK Callback API built on top of [Icicle](http://google.ru).
-
-INSTALL
-===
-```bash
-composer install ezaki113/vk-callback
-```
-
-TLDR
-===
-
-```php
 <?php
 declare (strict_types = 1);
 
@@ -26,13 +11,10 @@ $client = new Client('your token');
 
 $server->confirm('your confirm callback token');
 $server->on('wall_reply_new', function (array $data) use ($client) {
-    $response = yield from $client->call('wall.deleteComment', [
+    yield from $client->call('wall.deleteComment', [
         'owner_id' => -$data['group_id'],
         'comment_id' => $data['object']['id']
     ]);
-
-    var_dump($response);
 });
 
 $server->run(7070);
-```
